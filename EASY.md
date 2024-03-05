@@ -3,7 +3,7 @@
 
 The MERN stack is a combination of four technologies: MongoDB, Express.js, React.js, and Node.js. It is a full-stack JavaScript framework used for building dynamic web applications. Each component of the stack plays a specific role:
 
-- **MongoDB**: A NoSQL database that stores data in JSON-like documents.
+- **MongoDB**: A NoSQL database that stores data in JSON-like documents(javascript object notation).
 - **Express.js**: A backend framework for building web applications and APIs using Node.js.
 - **React.js**: A frontend library for building user interfaces.
 - **Node.js**: A JavaScript runtime environment that executes JavaScript code on the server-side.
