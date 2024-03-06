@@ -202,13 +202,43 @@ JSON (JavaScript Object Notation) is a lightweight data interchange format that 
 
 ### 19. How do you handle static files in an Express.js application?
 
-Static files, such as HTML, CSS, and client-side JavaScript files, can be served in an Express.js application using the built-in `express.static` middleware. This middleware function serves static files from a specified directory.
+In Express.js, you can serve static files, such as HTML, CSS, JavaScript, images, and other assets, using the built-in middleware function `express.static`. This middleware function is used to serve static files from a directory.
 
-Example:
+To serve static files, you first need to specify the directory containing your static files using `express.static`. Then, you use `app.use()` to tell Express to use this middleware.
+
+Here's how you can serve static files in Express.js:
+
+1. Set up your directory structure. Create a directory named `public` (or any name you prefer) in your project root. This directory will contain your static files such as HTML, CSS, JavaScript, images, etc.
+
+2. Use `express.static` middleware to serve the static files. In your Express app, use `app.use()` to tell Express to use this middleware and specify the directory where your static files are located.
+
+Here's an example:
+
 ```javascript
-// Serve static files from the public directory
+const express = require('express');
+const app = express();
+
+// Serve static files from the "public" directory
 app.use(express.static('public'));
+
+// Example route
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+});
+
+// Start the server
+const port = 3000;
+app.listen(port, () => {
+  console.log(`Server is listening on port ${port}`);
+});
 ```
+
+In this example:
+- `express.static('public')` specifies that the static files are located in the `public` directory. Express will look for static files in this directory.
+- `app.use(express.static('public'))` tells Express to use this middleware for serving static files.
+- The route handler for `'/'` just sends a plain text response of 'Hello World!'. You can add more routes or logic as needed.
+
+With this setup, any files placed in the `public` directory (such as `public/index.html`, `public/style.css`, `public/script.js`, etc.) can be accessed directly by the client via their respective URLs. For example, if you have a file named `index.html` in the `public` directory, it can be accessed at `http://localhost:3000/index.html`.
 
 ### 20. Explain the concept of request and response objects in Express.js.
 
